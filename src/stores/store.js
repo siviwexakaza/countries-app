@@ -7,12 +7,8 @@ export const useCountriesStore = defineStore({
     countries: useStorage('countries', []),
     selectedCountry: null,
     isLoading: false,
+    isOffline: false,
   }),
-  getters: {
-    getCountries: (state) => state.countries,
-    getSelectedCountry: (state) => state.selectedCountry,
-    getIsLoading: (state) => state.isLoading,
-  },
   actions: {
     setCountries(arrayCountryNames){
       this.countries = arrayCountryNames;
@@ -22,6 +18,9 @@ export const useCountriesStore = defineStore({
     },
     setIsLoading(bool){
       this.isLoading = bool;
+    },
+    setIsOffline(bool) {
+      this.isOffline = bool;
     }
 
   }
